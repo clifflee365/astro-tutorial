@@ -1,5 +1,26 @@
 ---
+const pageTitle = "About Me"
 
+const identity = {
+  name: "Cliff Lee",
+  country: "China",
+  bio: "Building & Exploring & Sharing  interesting things",
+}
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Next.js",
+  "TailWind CSS",
+  "React",
+  "Astro",
+  "Vue",
+]
+
+const happy = true
+const finished = false
+const goal = 3
 ---
 
 <html lang="en">
@@ -8,22 +29,37 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>About</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
 
-    <h1>About Me</h1>
-    <h2>Stay Hungry. Stay Foolish.</h2>
-    <p>
-      Your time is limited, so don't waste it living someone else's life. Don't
-      be trapped by dogma - which is living with the results of other people's
-      thinking. Don't let the noise of other's opinions drown out your own inner
-      voice. And most important, have the courage to follow your heart and
-      intuition. They somehow already know what you truly want to become.
-      Everything else is secondary.
-    </p>
+    <h1>{pageTitle}</h1>
+
+    <h2>Info</h2>
+    <ul>
+      <li>{identity.name}</li>
+      <li>{identity.country}</li>
+      <li>{identity.bio}</li>
+    </ul>
+
+    <h2>My Skills:</h2>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+
+    {happy && <p>I am happy to be learning Astro!</p>}
+
+    {finished && <p>I finished this tutorial!</p>}
+
+    {
+      goal === 3 ? (
+        <p>My goal is to finish in 3 days.</p>
+      ) : (
+        <p>My goal is not 3 days.</p>
+      )
+    }
   </body>
 </html>
