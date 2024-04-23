@@ -1,3 +1,7 @@
+:root {
+  --content-delay: 150ms;
+}
+
 html.dark {
   background-color: #0d0950;
   color: #fff;
@@ -89,4 +93,24 @@ h1 {
     display: none;
   }
 
+}
+
+#content-wrapper {
+  animation-delay: var(--content-delay);
+}
+
+@keyframes fade-in-up {
+  0% {
+      transform: translateY(2rem);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+.onload-animation {
+  opacity: 0;
+  animation: 300ms fade-in-up;
+  animation-fill-mode: forwards;
 }
